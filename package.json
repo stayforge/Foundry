@@ -1,0 +1,16 @@
+{
+  "name": "foundry",
+  "version": "1.0.0",
+  "scripts": {
+    "sass-watch": "sass --watch --quiet --load-path=node_modules assets/scss:static/css",
+    "sass-build": "sass --load-path=node_modules assets/scss:static/css"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.3"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.13",
+    "postcss-cli": "^10.0.0",
+    "sass": "^1.86.0"
+  }
+}

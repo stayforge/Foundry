@@ -1,0 +1,638 @@
+[
+    {
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "environ",
+        "importPath": "os",
+        "description": "os",
+        "isExtraImport": true,
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "site",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "site",
+        "description": "site",
+        "detail": "site",
+        "documentation": {}
+    },
+    {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "uuid",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "uuid",
+        "description": "uuid",
+        "detail": "uuid",
+        "documentation": {}
+    },
+    {
+        "label": "load_dotenv",
+        "importPath": "dotenv",
+        "description": "dotenv",
+        "isExtraImport": true,
+        "detail": "dotenv",
+        "documentation": {}
+    },
+    {
+        "label": "load_dotenv",
+        "importPath": "dotenv",
+        "description": "dotenv",
+        "isExtraImport": true,
+        "detail": "dotenv",
+        "documentation": {}
+    },
+    {
+        "label": "load_dotenv",
+        "importPath": "dotenv",
+        "description": "dotenv",
+        "isExtraImport": true,
+        "detail": "dotenv",
+        "documentation": {}
+    },
+    {
+        "label": "urlencode",
+        "importPath": "urllib.parse",
+        "description": "urllib.parse",
+        "isExtraImport": true,
+        "detail": "urllib.parse",
+        "documentation": {}
+    },
+    {
+        "label": "Blueprint",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "url_for",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "session",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "redirect",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "Blueprint",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "make_response",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "jsonify",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "Blueprint",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "render_template",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "Flask",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "Flask",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "oauth",
+        "importPath": "main",
+        "description": "main",
+        "isExtraImport": true,
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "unittest",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "unittest",
+        "description": "unittest",
+        "detail": "unittest",
+        "documentation": {}
+    },
+    {
+        "label": "json",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "json",
+        "description": "json",
+        "detail": "json",
+        "documentation": {}
+    },
+    {
+        "label": "MainController",
+        "importPath": "modules.main.controller",
+        "description": "modules.main.controller",
+        "isExtraImport": true,
+        "detail": "modules.main.controller",
+        "documentation": {}
+    },
+    {
+        "label": "siteController",
+        "importPath": "modules.site.controller",
+        "description": "modules.site.controller",
+        "isExtraImport": true,
+        "detail": "modules.site.controller",
+        "documentation": {}
+    },
+    {
+        "label": "pytest",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pytest",
+        "description": "pytest",
+        "detail": "pytest",
+        "documentation": {}
+    },
+    {
+        "label": "create_app",
+        "importPath": "app.app",
+        "description": "app.app",
+        "isExtraImport": true,
+        "detail": "app.app",
+        "documentation": {}
+    },
+    {
+        "label": "create_app",
+        "importPath": "app.app",
+        "description": "app.app",
+        "isExtraImport": true,
+        "detail": "app.app",
+        "documentation": {}
+    },
+    {
+        "label": "get_config_by_name",
+        "importPath": "config.config",
+        "description": "config.config",
+        "isExtraImport": true,
+        "detail": "config.config",
+        "documentation": {}
+    },
+    {
+        "label": "initialize_route",
+        "importPath": "initialize_functions",
+        "description": "initialize_functions",
+        "isExtraImport": true,
+        "detail": "initialize_functions",
+        "documentation": {}
+    },
+    {
+        "label": "initialize_swagger",
+        "importPath": "initialize_functions",
+        "description": "initialize_functions",
+        "isExtraImport": true,
+        "detail": "initialize_functions",
+        "documentation": {}
+    },
+    {
+        "label": "Swagger",
+        "importPath": "flasgger",
+        "description": "flasgger",
+        "isExtraImport": true,
+        "detail": "flasgger",
+        "documentation": {}
+    },
+    {
+        "label": "main_bp",
+        "importPath": "modules.main.route",
+        "description": "modules.main.route",
+        "isExtraImport": true,
+        "detail": "modules.main.route",
+        "documentation": {}
+    },
+    {
+        "label": "site_bp",
+        "importPath": "modules.site.route",
+        "description": "modules.site.route",
+        "isExtraImport": true,
+        "detail": "modules.site.route",
+        "documentation": {}
+    },
+    {
+        "label": "create_app",
+        "importPath": "app",
+        "description": "app",
+        "isExtraImport": true,
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "OAuth",
+        "importPath": "authlib.integrations.flask_client",
+        "description": "authlib.integrations.flask_client",
+        "isExtraImport": true,
+        "detail": "authlib.integrations.flask_client",
+        "documentation": {}
+    },
+    {
+        "label": "bin_dir",
+        "kind": 5,
+        "importPath": ".venv.bin.activate_this",
+        "description": ".venv.bin.activate_this",
+        "peekOfCode": "bin_dir = os.path.dirname(abs_file)\nbase = bin_dir[: -len(\"bin\") - 1]  # strip away the bin part from the __file__, plus the path separator\n# prepend bin to PATH (this file is inside the bin directory)\nos.environ[\"PATH\"] = os.pathsep.join([bin_dir, *os.environ.get(\"PATH\", \"\").split(os.pathsep)])\nos.environ[\"VIRTUAL_ENV\"] = base  # virtual env is right above bin directory\nos.environ[\"VIRTUAL_ENV_PROMPT\"] = \"\" or os.path.basename(base)  # noqa: SIM222\n# add the virtual environments libraries to the host python import mechanism\nprev_length = len(sys.path)\nfor lib in \"../lib/python3.13/site-packages\".split(os.pathsep):\n    path = os.path.realpath(os.path.join(bin_dir, lib))",
+        "detail": ".venv.bin.activate_this",
+        "documentation": {}
+    },
+    {
+        "label": "base",
+        "kind": 5,
+        "importPath": ".venv.bin.activate_this",
+        "description": ".venv.bin.activate_this",
+        "peekOfCode": "base = bin_dir[: -len(\"bin\") - 1]  # strip away the bin part from the __file__, plus the path separator\n# prepend bin to PATH (this file is inside the bin directory)\nos.environ[\"PATH\"] = os.pathsep.join([bin_dir, *os.environ.get(\"PATH\", \"\").split(os.pathsep)])\nos.environ[\"VIRTUAL_ENV\"] = base  # virtual env is right above bin directory\nos.environ[\"VIRTUAL_ENV_PROMPT\"] = \"\" or os.path.basename(base)  # noqa: SIM222\n# add the virtual environments libraries to the host python import mechanism\nprev_length = len(sys.path)\nfor lib in \"../lib/python3.13/site-packages\".split(os.pathsep):\n    path = os.path.realpath(os.path.join(bin_dir, lib))\n    site.addsitedir(path.decode(\"utf-8\") if \"\" else path)",
+        "detail": ".venv.bin.activate_this",
+        "documentation": {}
+    },
+    {
+        "label": "os.environ[\"PATH\"]",
+        "kind": 5,
+        "importPath": ".venv.bin.activate_this",
+        "description": ".venv.bin.activate_this",
+        "peekOfCode": "os.environ[\"PATH\"] = os.pathsep.join([bin_dir, *os.environ.get(\"PATH\", \"\").split(os.pathsep)])\nos.environ[\"VIRTUAL_ENV\"] = base  # virtual env is right above bin directory\nos.environ[\"VIRTUAL_ENV_PROMPT\"] = \"\" or os.path.basename(base)  # noqa: SIM222\n# add the virtual environments libraries to the host python import mechanism\nprev_length = len(sys.path)\nfor lib in \"../lib/python3.13/site-packages\".split(os.pathsep):\n    path = os.path.realpath(os.path.join(bin_dir, lib))\n    site.addsitedir(path.decode(\"utf-8\") if \"\" else path)\nsys.path[:] = sys.path[prev_length:] + sys.path[0:prev_length]\nsys.real_prefix = sys.prefix",
+        "detail": ".venv.bin.activate_this",
+        "documentation": {}
+    },
+    {
+        "label": "os.environ[\"VIRTUAL_ENV\"]",
+        "kind": 5,
+        "importPath": ".venv.bin.activate_this",
+        "description": ".venv.bin.activate_this",
+        "peekOfCode": "os.environ[\"VIRTUAL_ENV\"] = base  # virtual env is right above bin directory\nos.environ[\"VIRTUAL_ENV_PROMPT\"] = \"\" or os.path.basename(base)  # noqa: SIM222\n# add the virtual environments libraries to the host python import mechanism\nprev_length = len(sys.path)\nfor lib in \"../lib/python3.13/site-packages\".split(os.pathsep):\n    path = os.path.realpath(os.path.join(bin_dir, lib))\n    site.addsitedir(path.decode(\"utf-8\") if \"\" else path)\nsys.path[:] = sys.path[prev_length:] + sys.path[0:prev_length]\nsys.real_prefix = sys.prefix\nsys.prefix = base",
+        "detail": ".venv.bin.activate_this",
+        "documentation": {}
+    },
+    {
+        "label": "os.environ[\"VIRTUAL_ENV_PROMPT\"]",
+        "kind": 5,
+        "importPath": ".venv.bin.activate_this",
+        "description": ".venv.bin.activate_this",
+        "peekOfCode": "os.environ[\"VIRTUAL_ENV_PROMPT\"] = \"\" or os.path.basename(base)  # noqa: SIM222\n# add the virtual environments libraries to the host python import mechanism\nprev_length = len(sys.path)\nfor lib in \"../lib/python3.13/site-packages\".split(os.pathsep):\n    path = os.path.realpath(os.path.join(bin_dir, lib))\n    site.addsitedir(path.decode(\"utf-8\") if \"\" else path)\nsys.path[:] = sys.path[prev_length:] + sys.path[0:prev_length]\nsys.real_prefix = sys.prefix\nsys.prefix = base",
+        "detail": ".venv.bin.activate_this",
+        "documentation": {}
+    },
+    {
+        "label": "prev_length",
+        "kind": 5,
+        "importPath": ".venv.bin.activate_this",
+        "description": ".venv.bin.activate_this",
+        "peekOfCode": "prev_length = len(sys.path)\nfor lib in \"../lib/python3.13/site-packages\".split(os.pathsep):\n    path = os.path.realpath(os.path.join(bin_dir, lib))\n    site.addsitedir(path.decode(\"utf-8\") if \"\" else path)\nsys.path[:] = sys.path[prev_length:] + sys.path[0:prev_length]\nsys.real_prefix = sys.prefix\nsys.prefix = base",
+        "detail": ".venv.bin.activate_this",
+        "documentation": {}
+    },
+    {
+        "label": "sys.path[:]",
+        "kind": 5,
+        "importPath": ".venv.bin.activate_this",
+        "description": ".venv.bin.activate_this",
+        "peekOfCode": "sys.path[:] = sys.path[prev_length:] + sys.path[0:prev_length]\nsys.real_prefix = sys.prefix\nsys.prefix = base",
+        "detail": ".venv.bin.activate_this",
+        "documentation": {}
+    },
+    {
+        "label": "sys.real_prefix",
+        "kind": 5,
+        "importPath": ".venv.bin.activate_this",
+        "description": ".venv.bin.activate_this",
+        "peekOfCode": "sys.real_prefix = sys.prefix\nsys.prefix = base",
+        "detail": ".venv.bin.activate_this",
+        "documentation": {}
+    },
+    {
+        "label": "sys.prefix",
+        "kind": 5,
+        "importPath": ".venv.bin.activate_this",
+        "description": ".venv.bin.activate_this",
+        "peekOfCode": "sys.prefix = base",
+        "detail": ".venv.bin.activate_this",
+        "documentation": {}
+    },
+    {
+        "label": "BaseConfig",
+        "kind": 6,
+        "importPath": "config.config",
+        "description": "config.config",
+        "peekOfCode": "class BaseConfig:\n    \"\"\"Base configuration.\"\"\"\n    DEBUG = False\n    TESTING = False\n    SQLALCHEMY_TRACK_MODIFICATIONS = False\n    SECRET_KEY = os.getenv('SECRET_KEY', uuid.uuid4().hex)\nclass DevelopmentConfig(BaseConfig):\n    \"\"\"Development configuration.\"\"\"\n    DEBUG = True\nclass TestingConfig(BaseConfig):",
+        "detail": "config.config",
+        "documentation": {}
+    },
+    {
+        "label": "DevelopmentConfig",
+        "kind": 6,
+        "importPath": "config.config",
+        "description": "config.config",
+        "peekOfCode": "class DevelopmentConfig(BaseConfig):\n    \"\"\"Development configuration.\"\"\"\n    DEBUG = True\nclass TestingConfig(BaseConfig):\n    \"\"\"Testing configuration.\"\"\"\n    DEBUG = True\n    TESTING = True\nclass ProductionConfig(BaseConfig):\n    \"\"\"Production configuration.\"\"\"\n    DEBUG = False",
+        "detail": "config.config",
+        "documentation": {}
+    },
+    {
+        "label": "TestingConfig",
+        "kind": 6,
+        "importPath": "config.config",
+        "description": "config.config",
+        "peekOfCode": "class TestingConfig(BaseConfig):\n    \"\"\"Testing configuration.\"\"\"\n    DEBUG = True\n    TESTING = True\nclass ProductionConfig(BaseConfig):\n    \"\"\"Production configuration.\"\"\"\n    DEBUG = False\ndef get_config_by_name(config_name):\n    \"\"\" Get config by name \"\"\"\n    if config_name == 'development':",
+        "detail": "config.config",
+        "documentation": {}
+    },
+    {
+        "label": "ProductionConfig",
+        "kind": 6,
+        "importPath": "config.config",
+        "description": "config.config",
+        "peekOfCode": "class ProductionConfig(BaseConfig):\n    \"\"\"Production configuration.\"\"\"\n    DEBUG = False\ndef get_config_by_name(config_name):\n    \"\"\" Get config by name \"\"\"\n    if config_name == 'development':\n        return DevelopmentConfig()\n    elif config_name == 'production':\n        return ProductionConfig()\n    elif config_name == 'testing':",
+        "detail": "config.config",
+        "documentation": {}
+    },
+    {
+        "label": "get_config_by_name",
+        "kind": 2,
+        "importPath": "config.config",
+        "description": "config.config",
+        "peekOfCode": "def get_config_by_name(config_name):\n    \"\"\" Get config by name \"\"\"\n    if config_name == 'development':\n        return DevelopmentConfig()\n    elif config_name == 'production':\n        return ProductionConfig()\n    elif config_name == 'testing':\n        return TestingConfig()\n    else:\n        return DevelopmentConfig()",
+        "detail": "config.config",
+        "documentation": {}
+    },
+    {
+        "label": "login",
+        "kind": 2,
+        "importPath": "modules.auth.views",
+        "description": "modules.auth.views",
+        "peekOfCode": "def login():\n    return oauth.auth0.authorize_redirect(\n        redirect_uri=url_for(\"callback\", _external=True)\n    )\n@auth.route(\"/callback\", methods=[\"GET\", \"POST\"])\ndef callback():\n    token = oauth.auth0.authorize_access_token()\n    session[\"user\"] = token\n    return redirect(\"/\")\n@auth.route(\"/logout\")",
+        "detail": "modules.auth.views",
+        "documentation": {}
+    },
+    {
+        "label": "callback",
+        "kind": 2,
+        "importPath": "modules.auth.views",
+        "description": "modules.auth.views",
+        "peekOfCode": "def callback():\n    token = oauth.auth0.authorize_access_token()\n    session[\"user\"] = token\n    return redirect(\"/\")\n@auth.route(\"/logout\")\ndef logout():\n    session.clear()\n    return redirect(\n        \"https://\" + os.getenv(\"AUTH0_DOMAIN\")\n        + \"/v2/logout?\"",
+        "detail": "modules.auth.views",
+        "documentation": {}
+    },
+    {
+        "label": "logout",
+        "kind": 2,
+        "importPath": "modules.auth.views",
+        "description": "modules.auth.views",
+        "peekOfCode": "def logout():\n    session.clear()\n    return redirect(\n        \"https://\" + os.getenv(\"AUTH0_DOMAIN\")\n        + \"/v2/logout?\"\n        + urlencode(\n            {\n                \"returnTo\": url_for(\"home\", _external=True),\n                \"client_id\": os.getenv(\"AUTH0_CLIENT_ID\"),\n            }",
+        "detail": "modules.auth.views",
+        "documentation": {}
+    },
+    {
+        "label": "auth",
+        "kind": 5,
+        "importPath": "modules.auth.views",
+        "description": "modules.auth.views",
+        "peekOfCode": "auth = Blueprint('auth', __name__,\n                 template_folder='templates',\n                 static_folder='static',\n                 url_prefix='/auth/')\n@auth.route(\"/login\")\ndef login():\n    return oauth.auth0.authorize_redirect(\n        redirect_uri=url_for(\"callback\", _external=True)\n    )\n@auth.route(\"/callback\", methods=[\"GET\", \"POST\"])",
+        "detail": "modules.auth.views",
+        "documentation": {}
+    },
+    {
+        "label": "MainController",
+        "kind": 6,
+        "importPath": "modules.main.controller",
+        "description": "modules.main.controller",
+        "peekOfCode": "class MainController:\n    def index(self):\n        return {'message':'Hello, World!'}",
+        "detail": "modules.main.controller",
+        "documentation": {}
+    },
+    {
+        "label": "test_index",
+        "kind": 2,
+        "importPath": "modules.main.main_tests",
+        "description": "modules.main.main_tests",
+        "peekOfCode": "def test_index():\n    main_controller = MainController()\n    result = main_controller.index()\n    assert result == {'message': 'Hello, World!'}",
+        "detail": "modules.main.main_tests",
+        "documentation": {}
+    },
+    {
+        "label": "index",
+        "kind": 2,
+        "importPath": "modules.main.route",
+        "description": "modules.main.route",
+        "peekOfCode": "def index():\n    \"\"\" Example endpoint with simple greeting.\n    ---\n    tags:\n      - Example API\n    responses:\n      200:\n        description: A simple greeting\n        schema:\n          type: object",
+        "detail": "modules.main.route",
+        "documentation": {}
+    },
+    {
+        "label": "main_bp",
+        "kind": 5,
+        "importPath": "modules.main.route",
+        "description": "modules.main.route",
+        "peekOfCode": "main_bp = Blueprint('main', __name__)\nmain_controller = MainController()\n@main_bp.route('/', methods=['GET'])\ndef index():\n    \"\"\" Example endpoint with simple greeting.\n    ---\n    tags:\n      - Example API\n    responses:\n      200:",
+        "detail": "modules.main.route",
+        "documentation": {}
+    },
+    {
+        "label": "main_controller",
+        "kind": 5,
+        "importPath": "modules.main.route",
+        "description": "modules.main.route",
+        "peekOfCode": "main_controller = MainController()\n@main_bp.route('/', methods=['GET'])\ndef index():\n    \"\"\" Example endpoint with simple greeting.\n    ---\n    tags:\n      - Example API\n    responses:\n      200:\n        description: A simple greeting",
+        "detail": "modules.main.route",
+        "documentation": {}
+    },
+    {
+        "label": "siteController",
+        "kind": 6,
+        "importPath": "modules.site.controller",
+        "description": "modules.site.controller",
+        "peekOfCode": "class siteController:\n    def index(self):\n        return {'message':'Hello, World!'}",
+        "detail": "modules.site.controller",
+        "documentation": {}
+    },
+    {
+        "label": "test_index",
+        "kind": 2,
+        "importPath": "modules.site.main_tests",
+        "description": "modules.site.main_tests",
+        "peekOfCode": "def test_index():\n    site_controller = siteController()\n    result = site_controller.index()\n    assert result == {'message': 'Hello, World!'}",
+        "detail": "modules.site.main_tests",
+        "documentation": {}
+    },
+    {
+        "label": "index",
+        "kind": 2,
+        "importPath": "modules.site.route",
+        "description": "modules.site.route",
+        "peekOfCode": "def index():\n    result = site_controller.index()\n    return render_template('index.html', **result)",
+        "detail": "modules.site.route",
+        "documentation": {}
+    },
+    {
+        "label": "site_bp",
+        "kind": 5,
+        "importPath": "modules.site.route",
+        "description": "modules.site.route",
+        "peekOfCode": "site_bp = Blueprint(\n    'Site Manager', __name__, url_prefix='/site', template_folder=template_folder\n)\nsite_controller = siteController()\n@site_bp.route('/', methods=['GET'])\ndef index():\n    result = site_controller.index()\n    return render_template('index.html', **result)",
+        "detail": "modules.site.route",
+        "documentation": {}
+    },
+    {
+        "label": "site_controller",
+        "kind": 5,
+        "importPath": "modules.site.route",
+        "description": "modules.site.route",
+        "peekOfCode": "site_controller = siteController()\n@site_bp.route('/', methods=['GET'])\ndef index():\n    result = site_controller.index()\n    return render_template('index.html', **result)",
+        "detail": "modules.site.route",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 2,
+        "importPath": "tests.conftest",
+        "description": "tests.conftest",
+        "peekOfCode": "def app():\n    app = create_app('testing')\n    app.config.update({\"TESTING\": True})\n    yield app\n@pytest.fixture\ndef client(app):\n    return app.test_client()",
+        "detail": "tests.conftest",
+        "documentation": {}
+    },
+    {
+        "label": "client",
+        "kind": 2,
+        "importPath": "tests.conftest",
+        "description": "tests.conftest",
+        "peekOfCode": "def client(app):\n    return app.test_client()",
+        "detail": "tests.conftest",
+        "documentation": {}
+    },
+    {
+        "label": "TestMain",
+        "kind": 6,
+        "importPath": "tests.tests_main",
+        "description": "tests.tests_main",
+        "peekOfCode": "class TestMain():\n    def test_index(self, client):\n        response = client.get('/')\n        assert response.status_code == 200\n        assert response.json == {'message': 'Hello, World!'}",
+        "detail": "tests.tests_main",
+        "documentation": {}
+    },
+    {
+        "label": "create_app",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def create_app(config=None) -> Flask:\n    \"\"\"\n    Create a Flask application.\n    Args:\n        config: The configuration object to use.\n    Returns:\n        A Flask application instance.\n    \"\"\"\n    app = Flask(__name__)\n    if config:",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "initialize_route",
+        "kind": 2,
+        "importPath": "initialize_functions",
+        "description": "initialize_functions",
+        "peekOfCode": "def initialize_route(app: Flask):\n    with app.app_context():\n        app.register_blueprint(main_bp, url_prefix='/')\n        app.register_blueprint(site_bp, url_prefix='/site/')\n# def initialize_db(app: Flask):\n#     with app.app_context():\n#         db.init_app(app)\n#         db.create_all()\ndef initialize_swagger(app: Flask):\n    with app.app_context():",
+        "detail": "initialize_functions",
+        "documentation": {}
+    },
+    {
+        "label": "initialize_swagger",
+        "kind": 2,
+        "importPath": "initialize_functions",
+        "description": "initialize_functions",
+        "peekOfCode": "def initialize_swagger(app: Flask):\n    with app.app_context():\n        swagger = Swagger(app)\n        return swagger",
+        "detail": "initialize_functions",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "app = create_app(config)\napp.secret_key = env.get(\"APP_SECRET_KEY\")\noauth=OAuth(app)\noauth.register(\n    \"auth0\",\n    client_id=env.get(\"AUTH0_CLIENT_ID\"),\n    client_secret=env.get(\"AUTH0_CLIENT_SECRET\"),\n    client_kwargs={\n        \"scope\": \"openid profile email\",\n    },",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "app.secret_key",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "app.secret_key = env.get(\"APP_SECRET_KEY\")\noauth=OAuth(app)\noauth.register(\n    \"auth0\",\n    client_id=env.get(\"AUTH0_CLIENT_ID\"),\n    client_secret=env.get(\"AUTH0_CLIENT_SECRET\"),\n    client_kwargs={\n        \"scope\": \"openid profile email\",\n    },\n    server_metadata_url=f'https://{env.get(\"AUTH0_DOMAIN\")}/.well-known/openid-configuration'",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 5,
+        "importPath": "wsgi",
+        "description": "wsgi",
+        "peekOfCode": "app = create_app('production')",
+        "detail": "wsgi",
+        "documentation": {}
+    }
+]

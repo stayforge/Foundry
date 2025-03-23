@@ -1,0 +1,13 @@
+// Variables
+@use 'variables' as *;
+
+// Bootstrap
+@use 'bootstrap/scss/bootstrap' as *;
+
+// Custom styles
+body {
+    background-color: $background-color;
+    color: $text-color;
+}
+
+// Add your custom styles here 
