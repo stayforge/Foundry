@@ -13,4 +13,4 @@ site_controller = siteController()
 @site_bp.route('/', methods=['GET'])
 def index():
     result = site_controller.index()
-    return render_template('index.html', **result)
+    return render_template('site/index.html', **result)

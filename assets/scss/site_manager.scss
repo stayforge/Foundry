@@ -1,0 +1,10 @@
+@use 'variables' as variables;
+
+.siteManager {
+  &-nav{
+    &-selector{
+      border-radius: 0.3rem;
+      margin-right: 1rem;
+    }
+  }
+}

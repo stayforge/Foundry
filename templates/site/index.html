@@ -1,8 +1,27 @@
-{% extends '../base.html' %}
+{% extends 'base.html' %}
 
-{% block title %}Home Page{% endblock %}
+{% block title %}Site Manager{% endblock %}
 
 {% block content %}
-    <h2>Welcome to the Home Page!</h2>
-    <p>This is a basic Flask app with Jinja2 template includes.</p>
+    <div class="">
+
+    </div>
+    <div class="siteManager-sites">
+        <div class="card shadow" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">etoe hotel</h5>
+                <h6 class="card-text">
+                    Loaded model:
+                </h6>
+                <ul>
+                    <li>Stayforge</li>
+                </ul>
+                <ul>
+                    <li>Access</li>
+                </ul>
+                <hr>
+                <a href="./site-id" class="btn">Management</a>
+            </div>
+        </div>
+    </div>
 {% endblock %}

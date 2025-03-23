@@ -1,5 +1,6 @@
 from dotenv import load_dotenv
 from flask import Flask
+from datetime import datetime, timezone
 
 from config.config import get_config_by_name
 from initialize_functions import initialize_route,initialize_swagger
@@ -29,5 +30,9 @@ def create_app(config=None) -> Flask:
 
     # Initialize Swagger
     initialize_swagger(app)
+
+    @app.context_processor
+    def inject_now():
+        return {'now': datetime.now(timezone.utc)}
 
     return app
