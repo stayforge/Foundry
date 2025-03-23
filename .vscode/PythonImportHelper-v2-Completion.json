@@ -76,11 +76,45 @@
         "documentation": {}
     },
     {
-        "label": "urlencode",
-        "importPath": "urllib.parse",
-        "description": "urllib.parse",
+        "label": "unittest",
+        "kind": 6,
         "isExtraImport": true,
-        "detail": "urllib.parse",
+        "importPath": "unittest",
+        "description": "unittest",
+        "detail": "unittest",
+        "documentation": {}
+    },
+    {
+        "label": "json",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "json",
+        "description": "json",
+        "detail": "json",
+        "documentation": {}
+    },
+    {
+        "label": "AccessController",
+        "importPath": "app.modules.access.controller",
+        "description": "app.modules.access.controller",
+        "isExtraImport": true,
+        "detail": "app.modules.access.controller",
+        "documentation": {}
+    },
+    {
+        "label": "Blueprint",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "render_template",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
         "documentation": {}
     },
     {
@@ -164,6 +198,38 @@
         "documentation": {}
     },
     {
+        "label": "render_template",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "request",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "jsonify",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "make_response",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
         "label": "Flask",
         "importPath": "flask",
         "description": "flask",
@@ -172,29 +238,19 @@
         "documentation": {}
     },
     {
+        "label": "urlencode",
+        "importPath": "urllib.parse",
+        "description": "urllib.parse",
+        "isExtraImport": true,
+        "detail": "urllib.parse",
+        "documentation": {}
+    },
+    {
         "label": "oauth",
         "importPath": "main",
         "description": "main",
         "isExtraImport": true,
         "detail": "main",
-        "documentation": {}
-    },
-    {
-        "label": "unittest",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "unittest",
-        "description": "unittest",
-        "detail": "unittest",
-        "documentation": {}
-    },
-    {
-        "label": "json",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "json",
-        "description": "json",
-        "detail": "json",
         "documentation": {}
     },
     {
@@ -255,6 +311,15 @@
         "documentation": {}
     },
     {
+        "label": "requests",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "requests",
+        "description": "requests",
+        "detail": "requests",
+        "documentation": {}
+    },
+    {
         "label": "get_config_by_name",
         "importPath": "config.config",
         "description": "config.config",
@@ -300,6 +365,14 @@
         "description": "modules.site.route",
         "isExtraImport": true,
         "detail": "modules.site.route",
+        "documentation": {}
+    },
+    {
+        "label": "access_bp",
+        "importPath": "modules.access.route",
+        "description": "modules.access.route",
+        "isExtraImport": true,
+        "detail": "modules.access.route",
         "documentation": {}
     },
     {
@@ -445,6 +518,51 @@
         "documentation": {}
     },
     {
+        "label": "test_index",
+        "kind": 2,
+        "importPath": "modules.access.access_tests",
+        "description": "modules.access.access_tests",
+        "peekOfCode": "def test_index():\n    access_controller = AccessController()\n    result = access_controller.index()\n    assert result == {'message': 'Hello, World!'}",
+        "detail": "modules.access.access_tests",
+        "documentation": {}
+    },
+    {
+        "label": "AccessController",
+        "kind": 6,
+        "importPath": "modules.access.controller",
+        "description": "modules.access.controller",
+        "peekOfCode": "class AccessController:\n    def index(self):\n        return {'message':'Hello, World!'}",
+        "detail": "modules.access.controller",
+        "documentation": {}
+    },
+    {
+        "label": "index",
+        "kind": 2,
+        "importPath": "modules.access.route",
+        "description": "modules.access.route",
+        "peekOfCode": "def index():\n    result = {}\n    return render_template('access/index.html', **result)",
+        "detail": "modules.access.route",
+        "documentation": {}
+    },
+    {
+        "label": "access_bp",
+        "kind": 5,
+        "importPath": "modules.access.route",
+        "description": "modules.access.route",
+        "peekOfCode": "access_bp = Blueprint('access', __name__)\naccess_controller = AccessController()\n@access_bp.route('/', methods=['GET'])\ndef index():\n    result = {}\n    return render_template('access/index.html', **result)",
+        "detail": "modules.access.route",
+        "documentation": {}
+    },
+    {
+        "label": "access_controller",
+        "kind": 5,
+        "importPath": "modules.access.route",
+        "description": "modules.access.route",
+        "peekOfCode": "access_controller = AccessController()\n@access_bp.route('/', methods=['GET'])\ndef index():\n    result = {}\n    return render_template('access/index.html', **result)",
+        "detail": "modules.access.route",
+        "documentation": {}
+    },
+    {
         "label": "login",
         "kind": 2,
         "importPath": "modules.auth.views",
@@ -548,7 +666,7 @@
         "kind": 2,
         "importPath": "modules.site.route",
         "description": "modules.site.route",
-        "peekOfCode": "def index():\n    result = site_controller.index()\n    return render_template('index.html', **result)",
+        "peekOfCode": "def index():\n    result = site_controller.index()\n    return render_template('site/index.html', **result)",
         "detail": "modules.site.route",
         "documentation": {}
     },
@@ -557,7 +675,7 @@
         "kind": 5,
         "importPath": "modules.site.route",
         "description": "modules.site.route",
-        "peekOfCode": "site_bp = Blueprint(\n    'Site Manager', __name__, url_prefix='/site', template_folder=template_folder\n)\nsite_controller = siteController()\n@site_bp.route('/', methods=['GET'])\ndef index():\n    result = site_controller.index()\n    return render_template('index.html', **result)",
+        "peekOfCode": "site_bp = Blueprint(\n    'Site Manager', __name__, url_prefix='/site', template_folder=template_folder\n)\nsite_controller = siteController()\n@site_bp.route('/', methods=['GET'])\ndef index():\n    result = site_controller.index()\n    return render_template('site/index.html', **result)",
         "detail": "modules.site.route",
         "documentation": {}
     },
@@ -566,7 +684,7 @@
         "kind": 5,
         "importPath": "modules.site.route",
         "description": "modules.site.route",
-        "peekOfCode": "site_controller = siteController()\n@site_bp.route('/', methods=['GET'])\ndef index():\n    result = site_controller.index()\n    return render_template('index.html', **result)",
+        "peekOfCode": "site_controller = siteController()\n@site_bp.route('/', methods=['GET'])\ndef index():\n    result = site_controller.index()\n    return render_template('site/index.html', **result)",
         "detail": "modules.site.route",
         "documentation": {}
     },
@@ -586,6 +704,15 @@
         "description": "tests.conftest",
         "peekOfCode": "def client(app):\n    return app.test_client()",
         "detail": "tests.conftest",
+        "documentation": {}
+    },
+    {
+        "label": "TestAccess",
+        "kind": 6,
+        "importPath": "tests.tests_access",
+        "description": "tests.tests_access",
+        "peekOfCode": "class TestAccess():\n    def test_index(self, client):\n        response = client.get('/')\n        assert response.status_code == 200\n        assert response.json == {'message': 'Hello, World!'}",
+        "detail": "tests.tests_access",
         "documentation": {}
     },
     {
@@ -611,7 +738,7 @@
         "kind": 2,
         "importPath": "initialize_functions",
         "description": "initialize_functions",
-        "peekOfCode": "def initialize_route(app: Flask):\n    with app.app_context():\n        app.register_blueprint(main_bp, url_prefix='/')\n        app.register_blueprint(site_bp, url_prefix='/site/')\n# def initialize_db(app: Flask):\n#     with app.app_context():\n#         db.init_app(app)\n#         db.create_all()\ndef initialize_swagger(app: Flask):\n    with app.app_context():",
+        "peekOfCode": "def initialize_route(app: Flask):\n    with app.app_context():\n        app.register_blueprint(main_bp, url_prefix='/')\n        app.register_blueprint(site_bp, url_prefix='/site/')\n        app.register_blueprint(access_bp, url_prefix='/access/')\n# def initialize_db(app: Flask):\n#     with app.app_context():\n#         db.init_app(app)\n#         db.create_all()\ndef initialize_swagger(app: Flask):",
         "detail": "initialize_functions",
         "documentation": {}
     },

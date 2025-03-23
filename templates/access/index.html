@@ -1,0 +1,307 @@
+{% extends 'base.html' %}
+{% from 'access/components/add_card_form.html' import add_card_form %}
+
+{% block title %}Access Control{% endblock %}
+
+{% block content %}
+    <div class="container mt-4">
+        <h1 class="mb-4">Access Control</h1>
+        
+        <!-- Add Card Form -->
+        {{ add_card_form() }}
+        
+        <!-- Card list will be displayed here -->
+        <div class="card mb-4">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">有效中のカード（有効なカード）</h5>
+                <div>
+                    <button type="button" class="btn btn-sm btn-outline-primary" id="refresh-cards">Refresh</button>
+                    <div class="form-check form-check-inline ms-2">
+                        <input class="form-check-input" type="checkbox" id="auto-refresh" checked>
+                        <label class="form-check-label" for="auto-refresh">Auto Refresh</label>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Card Number</th>
+                                <th>Name</th>
+                                <th>Devices</th>
+                                <th>Status</th>
+                                <th>TTL</th>
+                                <th>Created At</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="active-cards">
+                            <!-- Active cards will be displayed here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card Details Modal -->
+        <div class="modal fade" id="cardDetailsModal" tabindex="-1" aria-labelledby="cardDetailsModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="cardDetailsModalLabel">Card Details</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label class="form-label">Card Number</label>
+                            <p id="modalCardNumber" class="form-control-static"></p>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Name</label>
+                            <p id="modalCardName" class="form-control-static"></p>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Devices</label>
+                            <div id="modalDevices"></div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">TTL</label>
+                            <p id="modalTTL" class="form-control-static"></p>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Created At</label>
+                            <p id="modalCreatedAt" class="form-control-static"></p>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Persistent</label>
+                            <p id="modalPersist" class="form-control-static"></p>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Function to format date
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            return date.toLocaleString('ja-JP', {
+                year: 'numeric',
+                month: '2-digit',
+                day: '2-digit',
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+        }
+
+        // Function to format TTL
+        function formatTTL(ttl) {
+            const hours = Math.floor(ttl / 3600);
+            const minutes = Math.floor((ttl % 3600) / 60);
+            const seconds = ttl % 60;
+            return `${hours}h ${minutes}m ${seconds}s`;
+        }
+
+        // Function to get status badge
+        function getStatusBadge(card) {
+            if (card.persist) {
+                return '<span class="badge bg-success">Persistent</span>';
+            } else if (card.ttl > 3600) {
+                return '<span class="badge bg-primary">Active</span>';
+            } else if (card.ttl > 0) {
+                return '<span class="badge bg-warning">Expiring Soon</span>';
+            } else {
+                return '<span class="badge bg-danger">Expired</span>';
+            }
+        }
+
+        // Function to fetch active cards
+        async function fetchActiveCards() {
+            try {
+                const endpoint = document.getElementById('endpoint').value;
+                const environment = document.getElementById('environment').value;
+                
+                const response = await fetch(`/proxy/owner/anonymous?url=${encodeURIComponent(endpoint)}`, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'text/plain',
+                        'X-Environment': environment,
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const data = await response.json();
+                const tbody = document.getElementById('active-cards');
+                tbody.innerHTML = '';
+                
+                if (!Array.isArray(data)) {
+                    throw new Error('Invalid response format');
+                }
+                
+                data.forEach(card => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <span class="me-2">${card.number}</span>
+                                <button class="btn btn-sm btn-outline-secondary copy-btn" data-card-number="${card.number}">
+                                    <i class="bi bi-clipboard"></i>
+                                </button>
+                            </div>
+                        </td>
+                        <td>${card.name}</td>
+                        <td>
+                            <div class="d-flex flex-wrap gap-1">
+                                ${card.devices.map(device => 
+                                    `<span class="badge bg-secondary">${device}</span>`
+                                ).join('')}
+                            </div>
+                        </td>
+                        <td>${getStatusBadge(card)}</td>
+                        <td>
+                            <div class="ttl-countdown" data-ttl="${card.ttl}">
+                                ${formatTTL(card.ttl)}
+                            </div>
+                        </td>
+                        <td>${formatDate(card.created_at)}</td>
+                        <td>
+                            <div class="btn-group">
+                                <button class="btn btn-sm btn-outline-primary view-card" data-card-number="${card.number}">
+                                    <i class="bi bi-eye"></i>
+                                </button>
+                                <button class="btn btn-sm btn-outline-danger delete-card" data-card-number="${card.number}">
+                                    <i class="bi bi-trash"></i>
+                                </button>
+                            </div>
+                        </td>
+                    `;
+                    
+                    // Add copy functionality
+                    row.querySelector('.copy-btn').addEventListener('click', function() {
+                        navigator.clipboard.writeText(card.number).then(() => {
+                            const btn = this;
+                            const originalText = btn.innerHTML;
+                            btn.innerHTML = '<i class="bi bi-check"></i>';
+                            setTimeout(() => {
+                                btn.innerHTML = originalText;
+                            }, 2000);
+                        });
+                    });
+                    
+                    // Add view functionality
+                    row.querySelector('.view-card').addEventListener('click', function() {
+                        const modal = new bootstrap.Modal(document.getElementById('cardDetailsModal'));
+                        document.getElementById('modalCardNumber').textContent = card.number;
+                        document.getElementById('modalCardName').textContent = card.name;
+                        document.getElementById('modalDevices').innerHTML = card.devices.map(device => 
+                            `<span class="badge bg-secondary me-2">${device}</span>`
+                        ).join('');
+                        document.getElementById('modalTTL').textContent = formatTTL(card.ttl);
+                        document.getElementById('modalCreatedAt').textContent = formatDate(card.created_at);
+                        document.getElementById('modalPersist').textContent = card.persist ? 'Yes' : 'No';
+                        modal.show();
+                    });
+                    
+                    // Add delete functionality
+                    row.querySelector('.delete-card').addEventListener('click', async function() {
+                        if (confirm('このカードを削除してもよろしいですか？（確定要刪除這張卡片嗎？）')) {
+                            try {
+                                const response = await fetch(`/proxy/card/${card.number}?url=${encodeURIComponent(endpoint)}`, {
+                                    method: 'DELETE',
+                                    headers: {
+                                        'Content-Type': 'application/json',
+                                        'X-Environment': environment,
+                                        'Accept': 'application/json'
+                                    }
+                                });
+                                
+                                if (response.ok) {
+                                    row.remove();
+                                } else {
+                                    throw new Error(`HTTP error! status: ${response.status}`);
+                                }
+                            } catch (error) {
+                                console.error('Error deleting card:', error);
+                                alert('カードの削除に失敗しました（刪除卡片失敗）: ' + error.message);
+                            }
+                        }
+                    });
+                    
+                    tbody.appendChild(row);
+                });
+
+                // Update TTL countdowns
+                updateTTLCountdowns();
+            } catch (error) {
+                console.error('Failed to fetch active cards:', error);
+                const tbody = document.getElementById('active-cards');
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="7" class="text-center text-danger">
+                            カードの取得に失敗しました（獲取卡片失敗）: ${error.message}
+                        </td>
+                    </tr>
+                `;
+            }
+        }
+
+        // Function to update TTL countdowns
+        function updateTTLCountdowns() {
+            document.querySelectorAll('.ttl-countdown').forEach(element => {
+                let ttl = parseInt(element.dataset.ttl);
+                if (ttl > 0) {
+                    ttl--;
+                    element.dataset.ttl = ttl;
+                    element.textContent = formatTTL(ttl);
+                }
+            });
+        }
+
+        // Update TTL countdowns every second
+        setInterval(updateTTLCountdowns, 1000);
+
+        // Initialize polling
+        let pollInterval;
+        function startPolling() {
+            fetchActiveCards();
+            pollInterval = setInterval(fetchActiveCards, 5000); // Poll every 5 seconds
+        }
+
+        function stopPolling() {
+            if (pollInterval) {
+                clearInterval(pollInterval);
+                pollInterval = null;
+            }
+        }
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize polling
+            startPolling();
+            
+            // Handle manual refresh
+            document.getElementById('refresh-cards').addEventListener('click', fetchActiveCards);
+            
+            // Handle auto-refresh toggle
+            document.getElementById('auto-refresh').addEventListener('change', function(e) {
+                if (e.target.checked) {
+                    startPolling();
+                } else {
+                    stopPolling();
+                }
+            });
+
+            // Listen for card added event
+            window.addEventListener('cardAdded', fetchActiveCards);
+        });
+    </script>
+{% endblock %}

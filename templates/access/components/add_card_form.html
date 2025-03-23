@@ -1,0 +1,192 @@
+{% macro add_card_form() %}
+<div class="card">
+    <div class="card-header">
+        <h5 class="card-title mb-0">カード追加（添加卡片）</h5>
+    </div>
+    <div class="card-body">
+        <form id="addCardForm">
+            <div class="mb-3">
+                <label for="endpoint" class="form-label">API Endpoint</label>
+                <input type="text" class="form-control" id="endpoint" name="endpoint" value="https://identify.access.networks.stayforge.io" required>
+            </div>
+            <div class="mb-3">
+                <label for="environment" class="form-label">Environment</label>
+                <input type="text" class="form-control" id="environment" name="environment" value="standard" required>
+            </div>
+            <div class="mb-3">
+                <label for="cardNumber" class="form-label">カード番号（卡號）</label>
+                <input type="text" class="form-control" id="cardNumber" name="cardNumber" required>
+            </div>
+            <div class="mb-3">
+                <label for="cardName" class="form-label">カード名（卡片名稱）</label>
+                <input type="text" class="form-control" id="cardName" name="cardName" required>
+            </div>
+            <div class="mb-3">
+                <label for="devices" class="form-label">デバイス（設備）</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" id="deviceInput" placeholder="デバイス名を入力（輸入設備名稱）">
+                    <button type="button" class="btn btn-outline-secondary" onclick="addDevice()">追加（添加）</button>
+                </div>
+                <div id="selectedDevices" class="mt-2"></div>
+                <input type="hidden" id="devices" name="devices" required>
+            </div>
+            <div class="mb-3">
+                <label for="ttl" class="form-label">TTL (秒)</label>
+                <input type="number" class="form-control" id="ttl" name="ttl" value="3600" required>
+            </div>
+            <div class="mb-3">
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="persist" name="persist">
+                    <label class="form-check-label" for="persist">永続化（持久化）</label>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">カード追加（添加卡片）</button>
+        </form>
+    </div>
+</div>
+
+<div class="card mt-4">
+    <div class="card-header">
+        <h5 class="card-title mb-0">一括デバイス追加（批量添加設備）</h5>
+    </div>
+    <div class="card-body">
+        <div class="mb-3">
+            <label for="bulkDevices" class="form-label">デバイス一覧（設備列表）</label>
+            <textarea class="form-control" id="bulkDevices" rows="5" placeholder="1行に1つのデバイス名を入力してください（每行輸入一個設備名稱）"></textarea>
+        </div>
+        <button type="button" class="btn btn-primary" onclick="addBulkDevices()">すべて追加（添加所有）</button>
+        <button type="button" class="btn btn-danger" onclick="clearAllDevices()">すべてクリア（清除所有）</button>
+    </div>
+</div>
+
+<script>
+    let selectedDevices = JSON.parse(localStorage.getItem('selectedDevices') || '[]');
+
+    function saveDevicesToStorage() {
+        localStorage.setItem('selectedDevices', JSON.stringify(selectedDevices));
+    }
+
+    function clearAllDevices() {
+        if (confirm('すべてのデバイスを削除してもよろしいですか？（確定要刪除所有設備嗎？）')) {
+            selectedDevices = [];
+            updateDevicesList();
+            saveDevicesToStorage();
+        }
+    }
+
+    function addDevice() {
+        const deviceInput = document.getElementById('deviceInput');
+        const deviceName = deviceInput.value.trim();
+        
+        if (deviceName && !selectedDevices.includes(deviceName)) {
+            selectedDevices.push(deviceName);
+            updateDevicesList();
+            saveDevicesToStorage();
+            deviceInput.value = '';
+        }
+    }
+
+    function removeDevice(deviceName) {
+        selectedDevices = selectedDevices.filter(d => d !== deviceName);
+        updateDevicesList();
+        saveDevicesToStorage();
+    }
+
+    function updateDevicesList() {
+        const container = document.getElementById('selectedDevices');
+        const hiddenInput = document.getElementById('devices');
+        
+        container.innerHTML = '';
+        selectedDevices.forEach(device => {
+            const badge = document.createElement('span');
+            badge.className = 'badge bg-primary me-2 mb-2';
+            badge.innerHTML = `${device} <button type="button" class="btn-close btn-close-white ms-1" onclick="removeDevice('${device}')"></button>`;
+            container.appendChild(badge);
+        });
+        
+        hiddenInput.value = JSON.stringify(selectedDevices);
+    }
+
+    function addBulkDevices() {
+        const textarea = document.getElementById('bulkDevices');
+        const devices = textarea.value.split('\n').map(d => d.trim()).filter(d => d);
+        
+        devices.forEach(device => {
+            if (!selectedDevices.includes(device)) {
+                selectedDevices.push(device);
+            }
+        });
+        
+        updateDevicesList();
+        saveDevicesToStorage();
+        textarea.value = '';
+    }
+
+    // Initialize devices list
+    updateDevicesList();
+
+    document.getElementById('addCardForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const endpoint = document.getElementById('endpoint').value;
+        const environment = document.getElementById('environment').value;
+        const formData = {
+            number: document.getElementById('cardNumber').value,
+            name: document.getElementById('cardName').value,
+            devices: JSON.parse(document.getElementById('devices').value),
+            ttl: parseInt(document.getElementById('ttl').value),
+            persist: document.getElementById('persist').checked,
+            owner_client_id: "anonymous"
+        };
+
+        try {
+            console.log('Sending request to:', endpoint);
+            console.log('Request data:', formData);
+
+            const response = await fetch(`/proxy/card/add?url=${encodeURIComponent(endpoint)}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-Environment': environment,
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            });
+
+            console.log('Response status:', response.status);
+            console.log('Response headers:', Object.fromEntries(response.headers.entries()));
+
+            const responseText = await response.text();
+            console.log('Response body:', responseText);
+
+            if (!response.ok) {
+                let errorMessage = `HTTP error! status: ${response.status}`;
+                try {
+                    const errorData = JSON.parse(responseText);
+                    errorMessage = errorData.error || errorMessage;
+                } catch (e) {
+                    errorMessage = responseText || errorMessage;
+                }
+                throw new Error(errorMessage);
+            }
+
+            const result = JSON.parse(responseText);
+            alert('カードが追加されました（卡片已添加）');
+            
+            // Clear form
+            this.reset();
+            selectedDevices = [];
+            updateDevicesList();
+            saveDevicesToStorage();
+            
+            // Dispatch custom event
+            const event = new CustomEvent('cardAdded');
+            document.dispatchEvent(event);
+            
+        } catch (error) {
+            console.error('Error details:', error);
+            alert('エラーが発生しました（發生錯誤）:\n' + error.message);
+        }
+    });
+</script>
+{% endmacro %} 
